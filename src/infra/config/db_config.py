@@ -18,6 +18,7 @@ class DBConnectionHandler:
         return engine
 
     def __enter__(self):
+        # manager come in and out DB
         engine = create_engine(self.__connection_string)
         session_maker = sessionmaker()
         self.session = session_maker(bind=engine)
